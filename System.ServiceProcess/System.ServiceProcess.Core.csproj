@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <AssemblyName>System.ServiceProcess</AssemblyName>
+    <AssemblyName>System.ServiceProcess.Core</AssemblyName>
     <AssemblyTitle>System.ServiceProcess</AssemblyTitle>
     <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
     <RootNamespace></RootNamespace>
