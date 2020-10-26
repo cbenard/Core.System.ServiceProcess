@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <AssemblyName>System.ServiceProcess</AssemblyName>
+    <AssemblyTitle>System.ServiceProcess</AssemblyTitle>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+    <RootNamespace></RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1589</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Core.System.ServiceProcess</PackageId>
+    <Version>1.0.0</Version>
+    <Description>Porting of System.ServiceProcess for .NET Standard 2.0 and .NET Core 3.0 from the Microsoft .NET Reference Source.</Description>
+    <Product>Core.System.ServiceProcess</Product>
+    <Copyright>Copyright (C) Microsoft Corporation (Modifications by Chris Benard)</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>ServiceProcess, ServiceInstaller, ServiceProcessInstaller</PackageTags>
+    <PackageProjectUrl>https://github.com/cbenard/Core.System.ServiceProcess</PackageProjectUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+  </ItemGroup>
+  
+  <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
+    <Compile Remove="Design\ServiceInstallerDialog.cs" />
+    <Compile Remove="Design\ServiceNameConverter.cs" />
+    <None Include="Design\ServiceInstallerDialog.cs" />
+    <None Include="Design\ServiceNameConverter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Core.System.Configuration.Install" Version="1.1.0" />
+    <PackageReference Include="System.Diagnostics.EventLog" Version="4.7.0" />
+    <PackageReference Include="System.Security.Permissions" Version="4.7.0" />
+    <PackageReference Include="System.ServiceProcess.ServiceController" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>
