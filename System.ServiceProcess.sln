@@ -20,11 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\publish.yml = .github\workflows\publish.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7DD524D5-AB95-43A5-8100-942E70E568EE}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,7 +49,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4C8636ED-0D8B-48E8-91B6-5E8FE92631F3} = {B2B8B3B5-1641-4CF2-A662-B42519058FEB}
 		{DC604E95-B4CB-48B8-8F4B-637DE99683C1} = {4C8636ED-0D8B-48E8-91B6-5E8FE92631F3}
-		{7DD524D5-AB95-43A5-8100-942E70E568EE} = {B2B8B3B5-1641-4CF2-A662-B42519058FEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB1C6560-1AFD-4683-8267-6D1E20AD313E}
