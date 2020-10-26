@@ -1,4 +1,5 @@
 # Core.System.ServiceProcess
+[![NuGet](https://img.shields.io/nuget/v/Core.System.ServiceProcess.svg)](https://www.nuget.org/packages/Core.System.ServiceProcess/)
 
 Support System.Configuration.Install for .NET Core / .NET 5+. Used version from Microsoft [Reference Source](https://github.com/microsoft/referencesource/tree/master/System.ServiceProcess) and comments from .NET Framework DLL v4.0.0.0.
 
