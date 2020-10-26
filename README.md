@@ -23,7 +23,7 @@ Chris Benard / [LinkedIn](https://www.linkedin.com/in/chrisbenard)
 
 ### Special Thanks
 
-Thank you to @flamencist for his encouragement and work on [Core.System.Configuration.Install](https://github.com/flamencist/Core.System.Configuration.Install). This project was patterned after his and relies upon it (it is a package reference).
+Thank you to [@flamencist](https://github.com/flamencist) for his encouragement and work on [Core.System.Configuration.Install](https://github.com/flamencist/Core.System.Configuration.Install). This project was patterned after his and relies upon it (it is a package reference).
 
 ### Contributing 
 
