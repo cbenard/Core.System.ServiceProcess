@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\System.ServiceProcess\System.ServiceProcess.Core.csproj" />
+    <ProjectReference Include="..\System.ServiceProcess.Core\System.ServiceProcess.Core.csproj" />
   </ItemGroup>
 
 </Project>
