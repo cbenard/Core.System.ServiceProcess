@@ -3,10 +3,40 @@
 
 Support System.Configuration.Install for .NET Core / .NET 5+. Used version from Microsoft [Reference Source](https://github.com/microsoft/referencesource/tree/master/System.ServiceProcess) and comments from .NET Framework DLL v4.0.0.0.
 
-### Usage / Documentation
-Documentation would be appreciated via PRs, but this library is only for backward compatibility with .NET Framework applications being brought into .NET Core and .NET 5+, so it should not be used for new projects.
+## Usage / Documentation
+### Fixing the ImagePath in the Registry
+Somewhere in your parent installer, you will need to correct the path for the `ServiceInstaller`'s `assemblyPath` (non-case sensitive). With .NET Framework, the entry assembly was always an exe. However, even when running the exe dropped out with a publish, it just bootstraps the DLL and your `ImagePath` gets written to the registry with a `.dll` suffix, which will not work on startup (crashes in `KERNELBASE.dll`).
+
+Use something like this after whatever is setting your `assemblyPath` today:
+
+    private void CorrectAssemblyPath(InstallContext context)
+    {
+        string possibleDll = context.Parameters["assemblyPath"];
+
+        if (possibleDll == null)
+        {
+            return;
+        }
+
+        if (possibleDll.EndsWith(".dll", StringComparison.OrdinalIgnoreCase))
+        {
+            var exe = possibleDll.Substring(0, possibleDll.Length - 4) + ".exe";
+            context.Parameters["assemblyPath"] = exe;
+        }
+    }
+
+### Assembly Filename
+The assembly had to be renamed to `System.ServiceProcess.Core.dll` because the .NET Core pack comes with an empty (based on analysis with dnSpy) `System.ServiceProcess.dll` which causes the build to fail by saying none of the types are valid (assembly not referenced error). The compiler does not complain about the two DLLs and just silently ignores the new one.
+
+I renamed it, but all the types are still in the original namespace so this should not affect your code.
+
+---
+
+More documentation would be appreciated via PRs, but this library is only for backward compatibility with .NET Framework applications being brought into .NET Core and .NET 5+, so it should not be used for new projects.
 
 The interactive service credential prompt is only available when targeting .NET Core 3.0+ since `System.Windows.Forms` is unavailable in .NET Standard 2.0. This functionality is untested (by me).
+
+---
 
 ### Installation
 
