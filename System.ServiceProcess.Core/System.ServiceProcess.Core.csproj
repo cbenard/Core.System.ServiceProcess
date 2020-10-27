@@ -12,7 +12,7 @@
 
   <PropertyGroup>
     <PackageId>Core.System.ServiceProcess</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Description>Porting of System.ServiceProcess for .NET Standard 2.0 and .NET Core 3.0 from the Microsoft .NET Reference Source.</Description>
     <Product>Core.System.ServiceProcess</Product>
     <Copyright>Copyright (C) Microsoft Corporation (Modifications by Chris Benard)</Copyright>
