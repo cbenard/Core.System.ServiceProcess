@@ -9,7 +9,7 @@ namespace System.ServiceProcess
 	{
 		internal Res()
 		{
-			this.resources = new ResourceManager("System.ServiceProcess", base.GetType().Assembly);
+			this.resources = new ResourceManager("System.ServiceProcess.Resources", base.GetType().Assembly);
 		}
 
 		private static Res GetLoader()

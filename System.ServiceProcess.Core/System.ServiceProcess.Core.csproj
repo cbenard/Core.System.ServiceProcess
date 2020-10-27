@@ -4,7 +4,7 @@
     <AssemblyName>System.ServiceProcess.Core</AssemblyName>
     <AssemblyTitle>System.ServiceProcess</AssemblyTitle>
     <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>System.ServiceProcess</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1589</NoWarn>
