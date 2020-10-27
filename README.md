@@ -9,21 +9,23 @@ Somewhere in your parent installer, you will need to correct the path for the `S
 
 Use something like this after whatever is setting your `assemblyPath` today:
 
-    private void CorrectAssemblyPath(InstallContext context)
+```csharp
+private void CorrectAssemblyPath(InstallContext context)
+{
+    string possibleDll = context.Parameters["assemblyPath"];
+
+    if (possibleDll == null)
     {
-        string possibleDll = context.Parameters["assemblyPath"];
-
-        if (possibleDll == null)
-        {
-            return;
-        }
-
-        if (possibleDll.EndsWith(".dll", StringComparison.OrdinalIgnoreCase))
-        {
-            var exe = possibleDll.Substring(0, possibleDll.Length - 4) + ".exe";
-            context.Parameters["assemblyPath"] = exe;
-        }
+        return;
     }
+
+    if (possibleDll.EndsWith(".dll", StringComparison.OrdinalIgnoreCase))
+    {
+        var exe = possibleDll.Substring(0, possibleDll.Length - 4) + ".exe";
+        context.Parameters["assemblyPath"] = exe;
+    }
+}
+```
 
 ### Assembly Filename
 The assembly had to be renamed to `System.ServiceProcess.Core.dll` because the .NET Core pack comes with an empty (based on analysis with dnSpy) `System.ServiceProcess.dll` which causes the build to fail by saying none of the types are valid (assembly not referenced error). The compiler does not complain about the two DLLs and just silently ignores the new one.
