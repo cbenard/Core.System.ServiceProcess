@@ -1,18 +1,21 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <AssemblyName>System.ServiceProcess.Core</AssemblyName>
     <AssemblyTitle>System.ServiceProcess</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net5.0-windows</TargetFrameworks>
     <RootNamespace>System.ServiceProcess</RootNamespace>
-    <UseWindowsForms>true</UseWindowsForms>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1589</NoWarn>
   </PropertyGroup>
 
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('net5.0'))">
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
   <PropertyGroup>
     <PackageId>Core.System.ServiceProcess</PackageId>
-    <Version>1.0.2</Version>
+    <Version>2.0.0</Version>
     <Description>Porting of System.ServiceProcess for .NET Standard 2.0 and .NET Core 3.0 from the Microsoft .NET Reference Source.</Description>
     <Product>Core.System.ServiceProcess</Product>
     <Copyright>Copyright (C) Microsoft Corporation (Modifications by Chris Benard)</Copyright>
@@ -29,7 +32,7 @@
   <ItemGroup>
     <None Include="..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
   </ItemGroup>
-  
+
   <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
     <Compile Remove="Design\ServiceInstallerDialog.cs" />
     <Compile Remove="Design\ServiceNameConverter.cs" />
