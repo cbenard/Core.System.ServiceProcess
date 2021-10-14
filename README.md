@@ -36,7 +36,7 @@ I renamed it, but all the types are still in the original namespace so this shou
 
 More documentation would be appreciated via PRs, but this library is only for backward compatibility with .NET Framework applications being brought into .NET Core and .NET 5+, so it should not be used for new projects.
 
-The interactive service credential prompt is only available when targeting .NET Core 3.0+ since `System.Windows.Forms` is unavailable in .NET Standard 2.0. This functionality is untested (by me).
+The interactive service credential prompt is only available when targeting .NET Core 5.0-windows+ since `System.Windows.Forms` is unavailable in .NET Standard 2.0. This functionality is untested (by me).
 
 ---
 
